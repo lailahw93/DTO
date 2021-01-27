@@ -1,0 +1,35 @@
+body {
+  background-color: #576574;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: rgb(212 208 208);
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-label{
+  color: #a19e9e;
+}
+
+
+.mat-datepicker-content .mat-calendar-next-button, .mat-datepicker-content .mat-calendar-previous-button, .mat-datepicker-toggle {
+  color: #70358a;
+}
+
+#wrapper{
+  .mat-progress-spinner 
+  {
+    width: 50px !important;
+      height: 50px  !important;
+      position: absolute  !important;
+      left: 48%;
+      top: 38%;
+     
+  svg{
+    width: 50px !important;
+      height: 50px !important;
+  }
+  }
+}

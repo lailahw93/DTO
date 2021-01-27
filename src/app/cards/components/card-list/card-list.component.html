@@ -1,0 +1,47 @@
+<div id="wrapper">
+  <mat-spinner *ngIf="(loading$ | async)"></mat-spinner>
+  <div *ngIf="!(error$ | async); else error">
+    <div class="title-box">
+      <span class="title"> Credit Card Payments </span>
+      <button class="add-item-btn" (click)="addItem()">
+        + Add Card
+      </button>
+    </div>
+
+    <table class="table-container"
+           *ngIf="(cardsItems$ | async) && (cardsItems$ | async).length>0  ; else noItems">
+      <tr class="colums">
+        <th>Credit Card Number</th>
+        <th>Card Holder</th>
+        <th>Security Code</th>
+
+        <th>Expected Date</th>
+        <th>Amount</th>
+      </tr>
+      <tr *ngFor="let card of cardsItems$ | async"
+      >
+        <td>{{card.creditCardNumber}}</td>
+        <td>{{card.cardHolder}}</td>
+        <td>{{card.securityCode}}</td>
+
+        <td> {{dateFormat(card.expectedDate)}} </td>
+        <td>{{card.amount}}</td>
+      </tr>
+
+    </table>
+
+    <ng-template #noItems>
+      <div class="no-item">
+        There Is not any item if you want to add a card please press '+ Add Card'
+      </div>
+    </ng-template>
+
+  </div>
+</div>
+
+
+<ng-template #error>
+  <h2>{{(error$ | async)?.message}}</h2>
+</ng-template>
+
+

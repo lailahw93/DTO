@@ -1,0 +1,74 @@
+<div class="row card-container">
+  <div class="col-5 card-cover">
+    <form (ngSubmit)="addItem()" class="form-card" [formGroup]="cardForm">
+
+      <mat-form-field>
+        <mat-label class="required">Credit Card Number</mat-label>
+        <input matInput placeholder="Credit Card Number"
+               formControlName="creditCardNumber"
+
+        >
+        <mat-error
+
+          *ngIf="hasError('creditCardNumber')">{{getErrorMessage('creditCardNumber')}}</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <mat-label class="required">Card Holder</mat-label>
+        <input matInput placeholder="Card Holder"
+               formControlName="cardHolder"
+
+        >
+        <mat-error
+
+          *ngIf="hasError('cardHolder')">{{getErrorMessage('cardHolder')}}</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <mat-label>Security Code - CCV</mat-label>
+        <input matInput placeholder="Security Code"
+               formControlName="securityCode"
+
+        >
+        <mat-error
+
+          *ngIf="hasError('securityCode')">{{getErrorMessage('securityCode')}}</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <mat-label class="required">Amount</mat-label>
+        <input matInput placeholder="Amount"
+               formControlName="amount"
+
+        >
+        <mat-error
+
+          *ngIf="hasError('amount')">{{getErrorMessage('amount')}}</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <mat-label class="required">Choose a date</mat-label>
+        <input matInput [matDatepicker]="expectedDate"
+               [value]="cardForm.get('expectedDate').value"
+               formControlName="expectedDate">
+        <mat-datepicker-toggle matSuffix [for]="expectedDate"></mat-datepicker-toggle>
+        <mat-datepicker #expectedDate></mat-datepicker>
+
+        <mat-error
+
+          *ngIf="hasError('expectedDate')">{{getErrorMessage('expectedDate')}}</mat-error>
+      </mat-form-field>
+
+
+      <button type="submit" class="add-button"
+              [ngClass]="{'disabled-btn': cardForm.invalid}"
+              [disabled]="cardForm.invalid"
+      >Add New Card
+      </button>
+    </form>
+  </div>
+</div>

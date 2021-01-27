@@ -1,0 +1,36 @@
+
+.card-container {
+  justify-content: center;
+
+  .card-cover {
+    margin-top: 2rem;
+    box-shadow: 0 0 8px 2px rgba(152, 142, 222, 0.08);
+
+    .form-card {
+      display: flex;
+      flex-direction: column;
+      margin-top: 2rem;
+
+      .add-button {
+        margin-top: 1rem;
+        background: #70358a;
+        color: white;
+        border: none;
+        padding: 1rem 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .disabled-btn {
+        background: #70358a85;
+        cursor: no-drop;
+      }
+    }
+
+  }
+}
+
+
+.required:after {
+  content: " *";
+  color: red;
+}
